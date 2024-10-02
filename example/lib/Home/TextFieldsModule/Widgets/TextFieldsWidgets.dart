@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutterbootstrap5/flutterbootstrap5.dart';
+import 'package:flutterbootstrap5latest/flutterbootstrap5.dart';
 
 menuFields(context) {
   return SingleChildScrollView(

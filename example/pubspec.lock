@@ -139,12 +139,12 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutterbootstrap5:
+  flutterbootstrap5latest:
     dependency: "direct main"
     description:
       path: "."
       ref: HEAD
-      resolved-ref: cb2ef0a79451fc2d16d651c43de41af37cbf4ea9
+      resolved-ref: "02f84b06970f73a01bcc128043e9bf373a8f9abd"
       url: "https://github.com/postboxat18/flutterbootstrap5.git"
     source: git
     version: "0.0.1"
