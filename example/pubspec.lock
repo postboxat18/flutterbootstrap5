@@ -144,7 +144,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: ba9a6bf535273c3f037d0d12068059031ccbf3d2
+      resolved-ref: "17acdfce3632a6031e11c059b57f8067ecc29bd7"
       url: "https://github.com/postboxat18/flutterbootstrap5.git"
     source: git
     version: "0.0.2"
