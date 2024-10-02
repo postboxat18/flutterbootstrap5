@@ -1,4 +1,4 @@
-library flutterbootstrap5;
+library flutterbootstrap5latest;
 
 import 'dart:ui';
 import 'dart:ui' as ui show TextHeightBehavior;

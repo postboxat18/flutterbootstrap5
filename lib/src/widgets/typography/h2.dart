@@ -1,4 +1,4 @@
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 
 class H2 extends StatelessWidget {
   const H2(

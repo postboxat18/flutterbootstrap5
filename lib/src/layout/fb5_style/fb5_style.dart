@@ -1,4 +1,4 @@
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 
 abstract class _FB5Sizing {
   int get numerator;

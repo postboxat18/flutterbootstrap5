@@ -37,7 +37,7 @@ dependencies:
   dialog_flowtter: ^0.3.3
   grouped_list: ^6.0.0
   equatable: ^2.0.5
-  flutterbootstrap5:
+  flutterbootstrap5latest:
     git:
       url: https://github.com/postboxat18/flutterbootstrap5.git
 

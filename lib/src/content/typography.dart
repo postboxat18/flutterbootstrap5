@@ -1,4 +1,4 @@
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 
 class BootstrapTypography {
   static const FB5TextSetting h1 = FB5TextSetting(

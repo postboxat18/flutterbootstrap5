@@ -1,4 +1,4 @@
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 typedef MediaQueryBuilderFunction = Widget Function(
   BuildContext context,
   BoxConstraints constraints,

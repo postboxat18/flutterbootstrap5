@@ -1,4 +1,4 @@
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 
 class _FB5Order {
   final _FB5OrderNumber? defaultOrder;

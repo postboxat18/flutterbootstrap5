@@ -1,4 +1,4 @@
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 
 class _FB5Margin extends _ResponsiveSpacing {
   final _FB5ContentMargin? defaultMargin;

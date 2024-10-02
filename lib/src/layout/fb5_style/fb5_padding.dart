@@ -1,4 +1,4 @@
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 
 class _FB5Padding extends _ResponsiveSpacing {
   final _FB5ContentPadding? defaultPadding;

@@ -1,4 +1,4 @@
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 
 class FB5Row extends StatelessWidget {
   const FB5Row._({

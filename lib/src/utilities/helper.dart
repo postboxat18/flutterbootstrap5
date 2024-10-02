@@ -1,4 +1,4 @@
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 
 T responsiveValue<T>(BuildContext context,
     {required T defaultValue, T? xs, T? sm, T? md, T? lg, T? xl, T? xxl}) {

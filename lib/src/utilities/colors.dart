@@ -1,4 +1,4 @@
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 
 class BootstrapColors {
   static const Color blue = Color(0xFF0d6efd);

@@ -1,4 +1,4 @@
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 
 EdgeInsets? margin(BuildContext context, String classNames) {
   final screenData = BootstrapTheme.of(context);

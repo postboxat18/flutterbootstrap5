@@ -1,4 +1,4 @@
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 
 abstract class _FB5OrderWidget extends StatelessWidget {
   const _FB5OrderWidget({Key? key }) : super(key: key);

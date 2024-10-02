@@ -1,4 +1,4 @@
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 
 class Display5 extends StatelessWidget {
   const Display5(

@@ -1,5 +1,5 @@
 /*
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 
 class Div extends StatelessWidget {
   const Div({

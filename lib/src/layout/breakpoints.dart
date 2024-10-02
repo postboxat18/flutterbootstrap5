@@ -1,4 +1,4 @@
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 
 class _BootstrapBreakPoints {
   static const BreakPoint xs = BreakPoint(minWidth: 0, maxWidth: 576);

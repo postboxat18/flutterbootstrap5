@@ -1,4 +1,4 @@
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 
 class _FB5RowCols {
   final _FB5RowColsNumber? defaultOrder;

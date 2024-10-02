@@ -1,4 +1,4 @@
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 
 class FB5Col extends _FB5OrderWidget {
   const FB5Col._({

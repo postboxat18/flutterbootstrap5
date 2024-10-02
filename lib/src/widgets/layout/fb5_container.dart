@@ -1,4 +1,4 @@
-part of flutterbootstrap5;
+part of flutterbootstrap5latest;
 
 enum _ContainerBreakPoint { sm, md, lg, xl, xxl, fluid }
 
