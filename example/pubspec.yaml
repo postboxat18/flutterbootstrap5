@@ -30,6 +30,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  dropdown_textfield: ^1.0.8
+  syncfusion_flutter_charts: ^27.1.51
+  flutter_listfilter: ^0.0.3
+  flutter_bloc: ^8.1.5
+  dialog_flowtter: ^0.3.3
+  grouped_list: ^6.0.0
+  equatable: ^2.0.5
+  flutterbootstrap5:
+    git:
+      url: https://github.com/postboxat18/flutterbootstrap5.git
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -45,7 +55,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
