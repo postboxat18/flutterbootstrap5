@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutterbootstrap5/flutterbootstrap5.dart';
+import 'package:flutterbootstrap5latest/flutterbootstrap5.dart';
 
 class AlertUI extends StatefulWidget {
   const AlertUI({super.key});
