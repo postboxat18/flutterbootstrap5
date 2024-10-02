@@ -144,10 +144,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "17acdfce3632a6031e11c059b57f8067ecc29bd7"
+      resolved-ref: e8da23faa61488a8bd1b150262db31375a503272
       url: "https://github.com/postboxat18/flutterbootstrap5.git"
     source: git
-    version: "0.0.2"
+    version: "0.0.3"
   googleapis_auth:
     dependency: transitive
     description:
