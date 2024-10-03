@@ -2,7 +2,7 @@
 import 'package:example/Home/Dash/dash.dart';
 import 'package:example/Home/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbootstrap5latest/flutterbootstrap5.dart';
+import 'package:flutterbootstrap5latest/flutterbootstrap5latest.dart';
 
 import 'Alert/AlertUI.dart';
 import 'ChatBot/ChatBot.dart';

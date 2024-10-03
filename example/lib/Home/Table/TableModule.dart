@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_listfilter/flutter_listfilter.dart';
 
-import 'package:flutterbootstrap5latest/flutterbootstrap5.dart';
+import 'package:flutterbootstrap5latest/flutterbootstrap5latest.dart';
 
 import '../widgets/widgets.dart';
 import 'Model/DataTableList.dart';

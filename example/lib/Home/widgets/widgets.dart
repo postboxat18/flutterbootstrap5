@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbootstrap5latest/flutterbootstrap5.dart';
+import 'package:flutterbootstrap5latest/flutterbootstrap5latest.dart';
 
 
 getWrapper(String data, Widget child) {
