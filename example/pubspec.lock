@@ -130,10 +130,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_listfilter
-      sha256: fe872ba4e0239ea9812af20fd5dc232c0b61935b50d7d8d30a9527c01dafce3a
+      sha256: "96b5b0e1198a42ec7b8607c0fcec11014c6289c56df9ece164fe5e22e5a5f33a"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.6"
+    version: "0.0.9"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -144,10 +144,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: e8da23faa61488a8bd1b150262db31375a503272
+      resolved-ref: "31382a02fee84dbb9998a60ce1ba405acb8ccf83"
       url: "https://github.com/postboxat18/flutterbootstrap5.git"
     source: git
-    version: "0.0.3"
+    version: "0.0.4"
   googleapis_auth:
     dependency: transitive
     description:
