@@ -16,7 +16,7 @@ It is based on the well-known CSS framework Bootstrap 5 and offers many features
 <br />
 If you want to have a quick overview of the most important functions and test them directly, you can do so here
 
-[FLUTTER BOOTSTRAP 5 EXAMPLE WEBSITE](https://postboxat18.github.io/)
+[FLUTTER BOOTSTRAP 5 EXAMPLE WEBSITE](https://postboxat18.github.io/FlutterBootstrap/)
 
 
 ###### Small Example
