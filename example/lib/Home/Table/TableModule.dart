@@ -555,36 +555,41 @@ class _TableModuleState extends State<TableModule> {
                           margin: EdgeInsets.all(15),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(15.0),
-                            child: Wrap(
-                              runSpacing: 5,
-                              spacing: 15,
-                              children: tableModuleLis
-                                  .map((key) => Wrap(
-                                        runSpacing: 5,
-                                        spacing: 5,
-                                        children: [
-                                          if (key == "RegNo") ...[
-                                            const Icon(
-                                              Icons.person_outline_rounded,
-                                              color: Colors.grey,
-                                              size: 20,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                                gradient: gradientFunc()),
+                            child: Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: Wrap(
+                                runSpacing: 5,
+                                spacing: 15,
+                                children: tableModuleLis
+                                    .map((key) => Wrap(
+                                          runSpacing: 5,
+                                          spacing: 5,
+                                          children: [
+                                            /*if (key == "RegNo") ...[
+                                              const Icon(
+                                                Icons.person_outline_rounded,
+                                                color: Colors.white,
+                                                size: 20,
+                                              ),
+                                            ],*/
+                                            Text(
+                                              "$key:",
+                                              style:
+                                                  TextStyle(color: Colors.white),
                                             ),
+                                            Text(
+                                              module.get(key),
+                                              style:
+                                                  TextStyle(color: Colors.white),
+                                            )
                                           ],
-                                          Text(
-                                            "$key:",
-                                            style:
-                                                TextStyle(color: Colors.grey),
-                                          ),
-                                          Text(
-                                            module.get(key),
-                                            style:
-                                                TextStyle(color: Colors.black),
-                                          )
-                                        ],
-                                      ))
-                                  .toList(),
+                                        ))
+                                    .toList(),
+                              ),
                             ),
                           ),
                         ),

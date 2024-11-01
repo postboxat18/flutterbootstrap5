@@ -66,6 +66,7 @@ class _HomeState extends State<Home> {
     return isDevice
         ? Scaffold(
             appBar: AppBar(
+              iconTheme: IconThemeData(color: Colors.white),
               title: Text(
                 "Home",
                 style: TextStyle(color: Colors.white),
@@ -247,47 +248,28 @@ class _HomeState extends State<Home> {
 
   drawerFunc() {
     return Drawer(
-      backgroundColor: Colors.deepPurple,
-      child: Padding(
-        padding: EdgeInsets.all(10),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              //TITLE
-              ListView(
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                children: moduleList
-                    .map((module) =>
-                        inkWellDrawerFunc(module, moduleList, 0, false))
-                    .toList(),
-              ),
-              //exp 1
-              ExpansionTile(
-                iconColor: Colors.white,
-                collapsedIconColor: Colors.white,
-                title: expansionTitleFunc(1, true),
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                    child: ListView(
-                      scrollDirection: Axis.vertical,
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      children: multiList1
-                          .map((module) =>
-                              inkWellDrawerFunc(module, multiList1, 1, false))
-                          .toList(),
-                    ),
-                  ),
-                ],
-              ),
-              //EXP 2
-              ExpansionTile(
-                  title: expansionTitleFunc(1, true),
+      child: Container(
+        decoration: BoxDecoration(gradient: gradientFunc()),
+        child: Padding(
+          padding: EdgeInsets.all(10),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                //TITLE
+                ListView(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  children: moduleList
+                      .map((module) =>
+                          inkWellDrawerFunc(module, moduleList, 0, false))
+                      .toList(),
+                ),
+                //exp 1
+                ExpansionTile(
                   iconColor: Colors.white,
                   collapsedIconColor: Colors.white,
+                  title: expansionTitleFunc(1, true),
                   children: [
                     Padding(
                       padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
@@ -295,14 +277,35 @@ class _HomeState extends State<Home> {
                         scrollDirection: Axis.vertical,
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
-                        children: multiList2
+                        children: multiList1
                             .map((module) =>
-                                inkWellDrawerFunc(module, multiList2, 2, false))
+                                inkWellDrawerFunc(module, multiList1, 1, false))
                             .toList(),
                       ),
-                    )
-                  ]),
-            ],
+                    ),
+                  ],
+                ),
+                //EXP 2
+                ExpansionTile(
+                    title: expansionTitleFunc(1, true),
+                    iconColor: Colors.white,
+                    collapsedIconColor: Colors.white,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                        child: ListView(
+                          scrollDirection: Axis.vertical,
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          children: multiList2
+                              .map((module) =>
+                                  inkWellDrawerFunc(module, multiList2, 2, false))
+                              .toList(),
+                        ),
+                      )
+                    ]),
+              ],
+            ),
           ),
         ),
       ),
