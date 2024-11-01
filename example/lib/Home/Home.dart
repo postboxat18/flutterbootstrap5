@@ -1,5 +1,5 @@
-
 import 'package:example/Home/Dash/dash.dart';
+import 'package:example/Home/utils/UtilsWidgets.dart';
 import 'package:example/Home/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbootstrap5latest/flutterbootstrap5latest.dart';
@@ -36,7 +36,6 @@ class _HomeState extends State<Home> {
     "Alert Dialog",
     "Text Field Module",
     "Drag and Drop"
-
   ];
   late List<String> multiList1 = [
     "Multi 1",
@@ -69,16 +68,41 @@ class _HomeState extends State<Home> {
         ? Scaffold(
             appBar: AppBar(
               title: Text("Home"),
+              flexibleSpace: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [
+                        Colors.deepPurple,
+                        Colors.white,
+                      ],
+                      begin: const FractionalOffset(0.0, 0.0),
+                      end: const FractionalOffset(1.0, 0.0),
+                      stops: [0.0, 1.0],
+                      tileMode: TileMode.clamp),
+                ),
+              ),
             ),
             body: buildWidget(context),
             drawer: drawerFunc(),
-      floatingActionButton: chatBot(),
-
+            floatingActionButton: chatBot(),
           )
         : Scaffold(
             appBar: AppBar(
               elevation: 1,
               title: Text("Home"),
+              flexibleSpace: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [
+                        Colors.deepPurple,
+                        Colors.white,
+                      ],
+                      begin: const FractionalOffset(0.0, 0.0),
+                      end: const FractionalOffset(1.0, 0.0),
+                      stops: [0.0, 1.0],
+                      tileMode: TileMode.clamp),
+                ),
+              ),
               leading: IconButton(
                   onPressed: () {
                     setState(() {
@@ -137,7 +161,19 @@ class _HomeState extends State<Home> {
                   FB5Col(
                     classNames: isDrawer ? 'col-3' : 'col-1',
                     child: Container(
-                        color: Colors.deepPurple,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(30)),
+                          gradient: LinearGradient(
+                              colors: [
+                                Colors.deepPurple,
+                                Colors.white,
+                              ],
+                              begin: const FractionalOffset(0.0, 0.0),
+                              end: const FractionalOffset(1.0, 0.0),
+                              stops: [0.0, 1.0],
+                              tileMode: TileMode.clamp),
+                        ),
                         child: Column(
                           children: [
                             //TITLE
@@ -211,7 +247,7 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-      floatingActionButton: chatBot(),
+            floatingActionButton: chatBot(),
 
             //drawer: drawerFunc(),
           );
@@ -229,10 +265,10 @@ class _HomeState extends State<Home> {
                     : titleIndex == 4
                         ? TextFieldsModule()
                         : titleIndex == 5
-                        ? DragAndDrop()
-                        : Container(
-                            color: Colors.yellow,
-                          );
+                            ? DragAndDrop()
+                            : Container(
+                                color: Colors.yellow,
+                              );
   }
 
   drawerFunc() {
@@ -349,24 +385,57 @@ class _HomeState extends State<Home> {
       },
       child: Container(
         padding: EdgeInsets.all(15),
-        color: isSelectedModule(
-                    module,
-                    moduleList,
-                    val == 0
-                        ? intTitleHover
-                        : val == 1
-                            ? intMultiHover
-                            : intMulti1Hover) ||
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(30), topRight: Radius.circular(30)),
+          gradient: LinearGradient(
+              colors: [
                 isSelectedModule(
-                    module,
-                    moduleList,
-                    val == 0
-                        ? titleIndex
-                        : val == 1
-                            ? multiIndex
-                            : multi1Index)
-            ? Colors.white
-            : Colors.transparent,
+                            module,
+                            moduleList,
+                            val == 0
+                                ? intTitleHover
+                                : val == 1
+                                    ? intMultiHover
+                                    : intMulti1Hover) ||
+                        isSelectedModule(
+                            module,
+                            moduleList,
+                            val == 0
+                                ? titleIndex
+                                : val == 1
+                                    ? multiIndex
+                                    : multi1Index)
+                    ? isHover
+                        ? Colors.white
+                        : Colors.deepPurple
+                    : Colors.transparent,
+                isSelectedModule(
+                            module,
+                            moduleList,
+                            val == 0
+                                ? intTitleHover
+                                : val == 1
+                                    ? intMultiHover
+                                    : intMulti1Hover) ||
+                        isSelectedModule(
+                            module,
+                            moduleList,
+                            val == 0
+                                ? titleIndex
+                                : val == 1
+                                    ? multiIndex
+                                    : multi1Index)
+                    ? isHover
+                        ? Colors.deepPurple
+                        : Colors.white
+                    : Colors.transparent,
+              ],
+              begin: const FractionalOffset(0.0, 0.0),
+              end: const FractionalOffset(1.0, 0.0),
+              stops: [0.0, 1.0],
+              tileMode: TileMode.clamp),
+        ),
         child: FB5Row(
           classNames: isDrawer || isHover
               ? 'justify-content-start'
@@ -410,7 +479,7 @@ class _HomeState extends State<Home> {
                                     : val == 1
                                         ? multiIndex
                                         : multi1Index)
-                        ? Colors.deepPurple
+                        ? Colors.white
                         : Colors.white,
               ),
             ),
@@ -617,10 +686,10 @@ class _HomeState extends State<Home> {
       onPressed: () {
         isDevice
             ? Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ChatBot1(),
-            ))
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ChatBot1(),
+                ))
             : openAlertDialog();
       },
       child: Icon(

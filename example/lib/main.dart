@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Auth/login.dart';
+import 'Home/Home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,11 +19,10 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          useMaterial3: false,
-          scaffoldBackgroundColor: Colors.grey[300],
+          useMaterial3: true,
           colorScheme:
               ColorScheme.fromSwatch().copyWith(primary: Colors.deepPurple)),
-      home: Login(),
+      home: Home(),
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:flutterbootstrap5latest/flutterbootstrap5latest.dart';
+import '../utils/UtilsWidgets.dart';
 import '../widgets/widgets.dart';
 
 class ChatBot1 extends StatefulWidget {
@@ -18,6 +19,10 @@ class _ChatBot1State extends State<ChatBot1> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        flexibleSpace: Container(
+          decoration:BoxDecorationFunc(),
+
+        ),
         title: Text("Chat Bot"),
       ),
       body: ChatBot(),

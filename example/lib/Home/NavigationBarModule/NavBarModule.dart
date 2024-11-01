@@ -3,6 +3,7 @@ import '../Alert/AlertUI.dart';
 import '../Dash/dash.dart';
 import '../Table/TableModule.dart';
 import '../TextFieldsModule/TextFieldsModule.dart';
+import '../utils/UtilsWidgets.dart';
 import '../widgets/widgets.dart';
 
 class NavBarModule extends StatefulWidget {
@@ -31,7 +32,11 @@ class _NavBarModuleState extends State<NavBarModule> {
     return isDevice
         ? Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.deepPurple,
+              flexibleSpace: Container(
+                decoration: BoxDecorationFunc(),
+
+              ),
+
               title: Text("Bottom Bar"),
             ),
             body: buildWidget(context),
