@@ -56,7 +56,7 @@ class _DashState extends State<Dash> {
           ),
           //TITLE
           FB5Row(
-            classNames: 'ms-2 justify-content-start',
+            classNames: 'ms-2 justify-content-between',
             children: [
               FB5Col(
                 child: Text(
@@ -67,14 +67,11 @@ class _DashState extends State<Dash> {
                       fontWeight: FontWeight.bold),
                 ),
               ),
+              //ALERT DIALOG
+              FB5Col(child: AlertUI(),)
             ],
           ),
-          //ALERT DIALOG
-          FB5Row(
-            classNames: 'align-content-end' ,
-              children: [
-            FB5Col(child: AlertUI(),)
-          ]),
+
           //HEADER
           FB5Row(
             classNames:

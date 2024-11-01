@@ -20,57 +20,31 @@ class _MedUIState extends State<AlertUI> {
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        AppBar(
-          flexibleSpace: Container(
-            decoration: BoxDecoration(gradient: gradientFunc()),
-          ),
-          leadingWidth: 25,
-          leading: IconButton(
-              onPressed: () {
-                // Navigator.pop(context);
-              },
-              icon: Icon(
-                Icons.stop_circle,
-                color: Colors.white,
-              )),
-          title: Text(
-            "Alert",
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                    contentPadding: EdgeInsets.fromLTRB(15, 10, 15, 15),
-                    titlePadding: EdgeInsets.zero,
-                    title: Container(
-                      padding: EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(30),
-                              topLeft: Radius.circular(30)),
-                          gradient: gradientFunc()),
-                      child: Text(
-                        'Alert',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    content: showAlertDialog(context));
-              },
-            );
+    return ElevatedButton(
+      onPressed: () {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+                contentPadding: EdgeInsets.fromLTRB(15, 10, 15, 15),
+                titlePadding: EdgeInsets.zero,
+                title: Container(
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(30),
+                          topLeft: Radius.circular(30)),
+                      gradient: gradientFunc()),
+                  child: Text(
+                    'Alert',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                content: showAlertDialog(context));
           },
-          child: Text('Show AlertDialog'),
-        ),
-      ],
+        );
+      },
+      child: Text('Show AlertDialog'),
     );
   }
 
