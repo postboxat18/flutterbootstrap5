@@ -41,9 +41,12 @@ textFields(context) {
             classNames: 'm-2',
             child: TextFormField(
               decoration: InputDecoration(
-                  labelText: "Field $i",
+                  labelText: "Text Fields $i",
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8))),
+                      borderSide: BorderSide(color: Colors.grey)),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey)),
+                  ),
             ),
           ),
         ]

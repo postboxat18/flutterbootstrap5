@@ -15,19 +15,10 @@ class _TextFieldsModuleState extends State<TextFieldsModule> {
   Widget build(BuildContext context) {
     print(getData(MediaQuery.of(context).size.width));
     return SingleChildScrollView(
-      child: FB5Row(
-        children: [
-          FB5Col(
-            classNames:
-                'col-xs-12 col-sm-5 col-md-4 col-lg-3 col-xl-3 col-xxl-3',
-            child: menuFields(context),
-          ),
-          FB5Col(
-            classNames:
-                'col-xs-12 col-sm-7 col-md-8 col-lg-9 col-xl-9 col-xxl-9',
-            child: textFields(context),
-          ),
-        ],
+      child: FB5Col(
+        classNames:
+        'col-xs-12 col-sm-7 col-md-8 col-lg-9 col-xl-9 col-xxl-9',
+        child: textFields(context),
       ),
     );
   }
