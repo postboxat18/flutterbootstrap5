@@ -1,6 +1,6 @@
+import 'package:example/Home/utils/UtilsWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_listfilter/flutter_listfilter.dart';
-
 
 import 'package:flutterbootstrap5latest/flutterbootstrap5latest.dart';
 import 'package:grouped_list/grouped_list.dart';
@@ -59,52 +59,59 @@ class _DragAndDropState extends State<DragAndDrop> {
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
-    return SingleChildScrollView(
-      child: FlutterListFilter(
-          dynamicList: dragAndDropList,
-          filterHeaderList: tableModuleLis,
-          primaryColor: Colors.deepPurple,
-          lineColor: Colors.grey,
-          builder: (List<DragAndDropModel> dragAndDropList) {
-            dragAndDropMap = {};
+    return Container(
+      //decoration: BoxDecoration(gradient: gradientFunc()),
+      child: SingleChildScrollView(
+        child: FlutterListFilter(
+            dynamicList: dragAndDropList,
+            filterHeaderList: tableModuleLis,
+            primaryColor: Colors.deepPurple,
+            lineColor: Colors.grey,
+            builder: (List<DragAndDropModel> dragAndDropList) {
+              dragAndDropMap = {};
 
-            //SEPARATE LIST
-            List<DragAndDropModel> separateList = [];
-            for (var res in batchList) {
-              separateList = dragAndDropList
-                  .where((element) => element.batch == res)
-                  .toList();
-              dragAndDropMap.addAll({res: separateList});
-            }
-            return FB5Row(children: [
-              //HEADER
-              if (getData(width) == "xs" ||
-                  getData(width) == "sm" ||
-                  getData(width) == "md") ...[
-                FB5Col(
-                  child: mobileView(dragAndDropList, dragAndDropMap),
-                )
-              ] else ...[
-                ...batchList.map(
-                  (header) => FB5Col(
-                    child: Container(
-                      color: Colors.grey[200],
-                      child: webView(header, dragAndDropMap),
+              //SEPARATE LIST
+              List<DragAndDropModel> separateList = [];
+              for (var res in batchList) {
+                separateList = dragAndDropList
+                    .where((element) => element.batch == res)
+                    .toList();
+                dragAndDropMap.addAll({res: separateList});
+              }
+              return FB5Row(children: [
+                //HEADER
+                if (getData(width) == "xs" ||
+                    getData(width) == "sm" ||
+                    getData(width) == "md") ...[
+                  FB5Col(
+                    child: mobileView(dragAndDropList, dragAndDropMap),
+                  )
+                ] else ...[
+                  ...batchList.map(
+                    (header) => FB5Col(
+                      child: Container(
+                        //color: Colors.grey[200],
+                        color:Colors.transparent,
+                        child: webView(header, dragAndDropMap),
+                      ),
                     ),
                   ),
-                ),
-              ]
-            ]);
-          }),
+                ]
+              ]);
+            }),
+      ),
     );
   }
 
   childFunc(
       dragList, String header, bool isDrag, bool isMobile, dragAndDropMap) {
     return Card(
-      color: isDrag ? Colors.grey[300] : Colors.white,
+      //color: isDrag ? Colors.grey[300] : Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
+      child: Container(
+        decoration:
+            BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(12)),
+            gradient: gradientFunc()),
         padding: const EdgeInsets.all(15.0),
         child: Wrap(
           runSpacing: 5,
@@ -115,15 +122,15 @@ class _DragAndDropState extends State<DragAndDrop> {
                       runSpacing: 5,
                       spacing: 5,
                       children: [
-                        if (key == "RegNo") ...[
+                       /* if (key == "RegNo") ...[
                           FB5Col(
                             child: Icon(
                               Icons.person_outline_rounded,
-                              color: isDrag ? Colors.transparent : Colors.grey,
+                              color: isDrag ? Colors.transparent : Colors.white,
                               size: 20,
                             ),
                           ),
-                        ],
+                        ],*/
                         if (key == "batch" && isMobile) ...[
                           FB5Col(
                             child: FB5Row(
@@ -137,18 +144,21 @@ class _DragAndDropState extends State<DragAndDrop> {
                                         child: Text(
                                           "$key:",
                                           style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                              fontSize: 14,
                                               color: isDrag
                                                   ? Colors.transparent
-                                                  : Colors.grey),
+                                                  : Colors.white),
                                         ),
                                       ),
                                       FB5Col(
                                         child: Text(
                                           dragList.get(key),
                                           style: TextStyle(
+                                              fontSize: 14,
                                               color: isDrag
                                                   ? Colors.transparent
-                                                  : Colors.black),
+                                                  : Colors.white),
                                         ),
                                       ),
                                     ],
@@ -170,7 +180,7 @@ class _DragAndDropState extends State<DragAndDrop> {
                                       },
                                       icon: Icon(
                                         Icons.compare_arrows_rounded,
-                                        color: Colors.deepPurple,
+                                        color: Colors.white,
                                       )),
                                 ),
                               ],
@@ -181,18 +191,21 @@ class _DragAndDropState extends State<DragAndDrop> {
                             child: Text(
                               "$key:",
                               style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
                                   color: isDrag
                                       ? Colors.transparent
-                                      : Colors.grey),
+                                      : Colors.white),
                             ),
                           ),
                           FB5Col(
                             child: Text(
                               dragList.get(key),
                               style: TextStyle(
+                                fontSize: 14,
                                   color: isDrag
                                       ? Colors.transparent
-                                      : Colors.black),
+                                      : Colors.white),
                             ),
                           ),
                         ]
@@ -243,7 +256,8 @@ class _DragAndDropState extends State<DragAndDrop> {
     }, builder: (context, candidateData, rejectedData) {
       List<DragAndDropModel> dragList = dragAndDropMap[header] ?? [];
       return Container(
-        color: candidateData.isEmpty ? Colors.grey[200] : Colors.grey[300],
+        color:Colors.transparent,
+        //color: candidateData.isEmpty ? Colors.grey[200] : Colors.grey[300],
         child: Column(children: [
           Text(
             "$header (${dragList.length})",
@@ -255,13 +269,14 @@ class _DragAndDropState extends State<DragAndDrop> {
           if (dragAndDropMap[header]?.isEmpty ?? true) ...[
             FB5Col(
               classNames: 'col-3',
-              child: Card(
-                elevation: 0,
-                color: candidateData.isEmpty ? Colors.grey[200] : Colors.white,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12)),
+              child: Container(
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                    gradient: gradientFunc()
+                ),
                 child: Padding(
-                  padding: const EdgeInsets.all(15.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Wrap(
                     spacing: 5,
                     runSpacing: 5,
@@ -393,5 +408,3 @@ class _DragAndDropState extends State<DragAndDrop> {
     setState(() {});
   }
 }
-
-
