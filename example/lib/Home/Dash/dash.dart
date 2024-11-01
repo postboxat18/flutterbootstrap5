@@ -1,3 +1,4 @@
+import 'package:example/Home/utils/UtilsWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -42,6 +43,7 @@ class _DashState extends State<Dash> {
                     filled: true,
                     fillColor: Colors.white,
                     labelText: "Search Here",
+                    labelStyle: TextStyle(color: Colors.grey),
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     enabledBorder: OutlineInputBorder(
@@ -154,16 +156,19 @@ class _DashState extends State<Dash> {
   }
 
   gridView(String header) {
-    return Card(
-      elevation: 1,
-      color: Colors.white,
+    return Container(
+      margin: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+        gradient: gradientFunc()
+      ),
       child: FB5Row(
         children: [
           //HEADER
           FB5Col(
             classNames: 'p-2',
             child: Text(header,
-                style: TextStyle(fontSize: 14, color:Colors.deepPurple)),
+                style: TextStyle(fontSize: 14, color:Colors.white)),
           ),
           FB5Col(
             classNames: 'p-2',
@@ -172,13 +177,14 @@ class _DashState extends State<Dash> {
               children: [
                 FB5Col(
                   classNames: 'p-2',
-                  child: Icon(Icons.home_outlined, color:Colors.deepPurple),
+                  child: Icon(Icons.home_outlined, color:Colors.white),
                 ),
                 FB5Col(
                   classNames: 'p-2',
                   child: Text("22",
                       style: TextStyle(
                         fontSize: 14,
+                        color: Colors.deepPurple
                       )),
                 ),
               ],

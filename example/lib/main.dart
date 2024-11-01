@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
           useMaterial3: true,
           colorScheme:
               ColorScheme.fromSwatch().copyWith(primary: Colors.deepPurple)),
-      home: Home(),
+      home: Login(),
     );
   }
 }

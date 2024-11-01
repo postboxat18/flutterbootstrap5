@@ -67,19 +67,12 @@ class _HomeState extends State<Home> {
     return isDevice
         ? Scaffold(
             appBar: AppBar(
-              title: Text("Home"),
+              title: Text(
+                "Home",
+                style: TextStyle(color: Colors.white),
+              ),
               flexibleSpace: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [
-                        Colors.deepPurple,
-                        Colors.white,
-                      ],
-                      begin: const FractionalOffset(0.0, 0.0),
-                      end: const FractionalOffset(1.0, 0.0),
-                      stops: [0.0, 1.0],
-                      tileMode: TileMode.clamp),
-                ),
+                decoration: BoxDecoration(gradient: gradientFunc()),
               ),
             ),
             body: buildWidget(context),
@@ -89,19 +82,12 @@ class _HomeState extends State<Home> {
         : Scaffold(
             appBar: AppBar(
               elevation: 1,
-              title: Text("Home"),
+              title: Text(
+                "Home",
+                style: TextStyle(color: Colors.white),
+              ),
               flexibleSpace: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [
-                        Colors.deepPurple,
-                        Colors.white,
-                      ],
-                      begin: const FractionalOffset(0.0, 0.0),
-                      end: const FractionalOffset(1.0, 0.0),
-                      stops: [0.0, 1.0],
-                      tileMode: TileMode.clamp),
-                ),
+                decoration: BoxDecoration(gradient: gradientFunc()),
               ),
               leading: IconButton(
                   onPressed: () {
@@ -162,18 +148,9 @@ class _HomeState extends State<Home> {
                     classNames: isDrawer ? 'col-3' : 'col-1',
                     child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(30)),
-                          gradient: LinearGradient(
-                              colors: [
-                                Colors.deepPurple,
-                                Colors.white,
-                              ],
-                              begin: const FractionalOffset(0.0, 0.0),
-                              end: const FractionalOffset(1.0, 0.0),
-                              stops: [0.0, 1.0],
-                              tileMode: TileMode.clamp),
-                        ),
+                            borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(30)),
+                            gradient: gradientFunc()),
                         child: Column(
                           children: [
                             //TITLE

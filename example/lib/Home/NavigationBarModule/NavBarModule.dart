@@ -31,14 +31,6 @@ class _NavBarModuleState extends State<NavBarModule> {
     isDevice = getData(width) == "xs" || getData(width) == "sm";
     return isDevice
         ? Scaffold(
-            appBar: AppBar(
-              flexibleSpace: Container(
-                decoration: BoxDecorationFunc(),
-
-              ),
-
-              title: Text("Bottom Bar"),
-            ),
             body: buildWidget(context),
             bottomNavigationBar: BottomAppBar(
               height: 55,
@@ -65,36 +57,43 @@ class _NavBarModuleState extends State<NavBarModule> {
         : Column(
             children: [
               AppBar(
-                backgroundColor: Colors.deepPurple,
-                title: Text("Navigation Bar"),
-                actions: moduleList
-                    .map((module) => InkWell(
-                          child: Container(
-                            padding: EdgeInsets.all(15),
-                            color: index == selectedModule(module, moduleList)
-                                ? Colors.white
-                                : Colors.transparent,
-                            child: Text(
-                              module,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: index ==
-                                          selectedModule(module, moduleList)
-                                      ? FontWeight.bold
-                                      : FontWeight.w400,
-                                  color: index ==
-                                          selectedModule(module, moduleList)
-                                      ? Colors.deepPurple
-                                      : Colors.white),
-                            ),
-                          ),
-                          onTap: () {
-                            setState(() {
-                              index = selectedModule(module, moduleList);
-                            });
-                          },
-                        ))
-                    .toList(),
+                actions: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(bottomRight: Radius.circular(30),bottomLeft: Radius.circular(30),),
+                        gradient: gradientFunc()),
+                    child: Row(
+                      children: moduleList
+                          .map((module) => InkWell(
+                                child: Container(
+                                  width: 150,
+                                  padding: EdgeInsets.all(15),
+                                  child: Text(
+                                    module,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontWeight: index ==
+                                                selectedModule(
+                                                    module, moduleList)
+                                            ? FontWeight.bold
+                                            : FontWeight.w400,
+                                        color: index ==
+                                                selectedModule(
+                                                    module, moduleList)
+                                            ? Colors.deepPurple
+                                            : Colors.white),
+                                  ),
+                                ),
+                                onTap: () {
+                                  setState(() {
+                                    index = selectedModule(module, moduleList);
+                                  });
+                                },
+                              ))
+                          .toList(),
+                    ),
+                  )
+                ],
               ),
               buildWidget(context)
             ],

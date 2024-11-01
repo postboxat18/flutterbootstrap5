@@ -24,7 +24,9 @@ class _LoginState extends State<Login> {
       body: Container(
         width: double.maxFinite,
         height: double.maxFinite,
-        decoration:BoxDecorationFunc(),
+        decoration:BoxDecoration(
+            gradient: gradientFunc()
+        ),
 
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

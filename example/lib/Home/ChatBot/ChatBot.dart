@@ -20,7 +20,7 @@ class _ChatBot1State extends State<ChatBot1> {
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Container(
-          decoration:BoxDecorationFunc(),
+          decoration:BoxDecoration(gradient: gradientFunc()),
 
         ),
         title: Text("Chat Bot"),

@@ -6,6 +6,7 @@ import 'package:flutter_listfilter/flutter_listfilter.dart';
 
 import 'package:flutterbootstrap5latest/flutterbootstrap5latest.dart';
 
+import '../utils/UtilsWidgets.dart';
 import '../widgets/widgets.dart';
 import 'Model/DataTableList.dart';
 
@@ -348,14 +349,19 @@ class _TableModuleState extends State<TableModule> {
                       sortAscending: sort,
                       sortColumnIndex: columnIndexSort,
                       border: TableBorder.all(
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
                           color: Colors.black,
                           style: BorderStyle.solid,
-                          width: 2),
-                      headingRowColor: MaterialStateColor.resolveWith(
-                          (states) => Colors.deepPurple),
-                      dataRowColor: MaterialStateColor.resolveWith(
-                        (states) => lightPurple,
+                          width: 1),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                          gradient: gradientFunc()
                       ),
+                      // headingRowColor: MaterialStateColor.resolveWith(
+                      //     (states) => Colors.deepPurple),
+                      // dataRowColor: MaterialStateColor.resolveWith(
+                      //   (states) => lightPurple,
+                      // ),
                       columns: tableModuleLis
                           .map((res) => DataColumn(
                               onSort: (columnIndex, ascending) {
