@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import 'package:flutterbootstrap5latest/flutterbootstrap5latest.dart';
+import '../Alert/AlertUI.dart';
 import '../Table/TableModule.dart';
 import 'Model/SalesData.dart';
 
@@ -68,6 +69,12 @@ class _DashState extends State<Dash> {
               ),
             ],
           ),
+          //ALERT DIALOG
+          FB5Row(
+            classNames: 'align-content-end' ,
+              children: [
+            FB5Col(child: AlertUI(),)
+          ]),
           //HEADER
           FB5Row(
             classNames:
@@ -142,6 +149,7 @@ class _DashState extends State<Dash> {
                   ),
                 ),
               ]),
+
           //TABLE
           FB5Row(
             children: [

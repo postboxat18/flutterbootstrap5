@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutterbootstrap5latest/flutterbootstrap5latest.dart';
 
+import '../utils/UtilsWidgets.dart';
+
 class AlertUI extends StatefulWidget {
   const AlertUI({super.key});
 
@@ -15,14 +17,17 @@ class _MedUIState extends State<AlertUI> {
   String textName =
       'col-xs-12 col-sm-5 col-md-5 col-lg-3 col-xl-2 col-xxl-2 m-2';
 
-
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
-
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
         AppBar(
+          flexibleSpace: Container(
+            decoration: BoxDecoration(gradient: gradientFunc()),
+          ),
           leadingWidth: 25,
           leading: IconButton(
               onPressed: () {
@@ -45,11 +50,15 @@ class _MedUIState extends State<AlertUI> {
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
-                    contentPadding: EdgeInsets.fromLTRB(15, 10, 15, 0),
+                    contentPadding: EdgeInsets.fromLTRB(15, 10, 15, 15),
                     titlePadding: EdgeInsets.zero,
                     title: Container(
                       padding: EdgeInsets.all(15),
-                      color: Colors.deepPurple,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(30),
+                              topLeft: Radius.circular(30)),
+                          gradient: gradientFunc()),
                       child: Text(
                         'Alert',
                         style: TextStyle(color: Colors.white),
@@ -232,6 +241,7 @@ class _MedUIState extends State<AlertUI> {
                       children: [
                         Icon(
                           Icons.add,
+                          color: Colors.white,
                         ),
                         // Iconace between icon and text
                         Text(
@@ -256,6 +266,7 @@ class _MedUIState extends State<AlertUI> {
                       children: [
                         Icon(
                           Icons.close,
+                          color: Colors.white,
                         ),
                         // Iconace between icon and text
                         Text(
@@ -458,6 +469,7 @@ class _MedUIState extends State<AlertUI> {
                       children: [
                         Icon(
                           Icons.add,
+                          color: Colors.white,
                         ),
                         // Iconace between icon and text
                         Text(
@@ -526,7 +538,8 @@ class _MedUIState extends State<AlertUI> {
                     child: Text(
                       "option",
                     ),
-                  ), FB5Col(
+                  ),
+                  FB5Col(
                     child: Radio(
                       value: false,
                       groupValue: 2,

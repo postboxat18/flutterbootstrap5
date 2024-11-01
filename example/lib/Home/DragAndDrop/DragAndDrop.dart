@@ -63,7 +63,7 @@ class _DragAndDropState extends State<DragAndDrop> {
       child: FlutterListFilter(
           dynamicList: dragAndDropList,
           filterHeaderList: tableModuleLis,
-          primaryColor: Colors.blue,
+          primaryColor: Colors.deepPurple,
           lineColor: Colors.grey,
           builder: (List<DragAndDropModel> dragAndDropList) {
             dragAndDropMap = {};

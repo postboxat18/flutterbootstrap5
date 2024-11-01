@@ -33,7 +33,6 @@ class _HomeState extends State<Home> {
     "DashBoard Module",
     "Table Module",
     "Nav Module",
-    "Alert Dialog",
     "Text Field Module",
     "Drag and Drop"
   ];
@@ -237,11 +236,9 @@ class _HomeState extends State<Home> {
             ? TableModule()
             : titleIndex == 2
                 ? NavBarModule()
-                : titleIndex == 3
-                    ? AlertUI()
-                    : titleIndex == 4
+                    : titleIndex == 3
                         ? TextFieldsModule()
-                        : titleIndex == 5
+                        : titleIndex == 4
                             ? DragAndDrop()
                             : Container(
                                 color: Colors.yellow,
