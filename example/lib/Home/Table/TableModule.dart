@@ -1,4 +1,5 @@
 import 'package:dropdown_textfield/dropdown_textfield.dart';
+import 'package:example/Utils/ColorFile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -185,7 +186,7 @@ class _TableModuleState extends State<TableModule> {
                     },
                     child: Text(
                       "Cancel",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: primary),
                     )),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -195,7 +196,7 @@ class _TableModuleState extends State<TableModule> {
                     },
                     child: Text(
                       "Apply",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: primary),
                     )),
               ],
             ),
@@ -304,26 +305,31 @@ class _TableModuleState extends State<TableModule> {
               children: [
                 SizedBox(
                     width: 100,
-                    child: DropDownTextField(
-                        clearOption: false,
-                        controller: dropDownController,
-                        enableSearch: false,
-                        onChanged: (value) {
-                          setState(() {
-                            dropDownController;
-                            selectedIndex = 1;
-                          });
-                          calculateVisiblePages(
-                              value.name == "All"
-                                  ? dataTableList.length
-                                  : int.parse(value.name.toString()),
-                              dataTableList);
-                        },
-                        textFieldDecoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.grey, width: 1))),
-                        dropDownList: dropDownList)),
+                    child: Card(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: DropDownTextField(
+                            clearOption: false,
+                            controller: dropDownController,
+                            enableSearch: false,
+                            onChanged: (value) {
+                              setState(() {
+                                dropDownController;
+                                selectedIndex = 1;
+                              });
+                              calculateVisiblePages(
+                                  value.name == "All"
+                                      ? dataTableList.length
+                                      : int.parse(value.name.toString()),
+                                  dataTableList);
+                            },
+                            textFieldDecoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.grey, width: 1))),
+                            dropDownList: dropDownList),
+                      ),
+                    )),
                 const Padding(
                   padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                   child: Text(
@@ -338,24 +344,24 @@ class _TableModuleState extends State<TableModule> {
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 primary: true,
-                child: Padding(
+                child: Container(
+                  width: width,
                   padding: const EdgeInsets.all(8.0),
                   child: Theme(
                     data: Theme.of(context).copyWith(
                         iconTheme: Theme.of(context)
                             .iconTheme
-                            .copyWith(color: Colors.white)),
+                            .copyWith(color: primary)),
                     child: DataTable(
                       sortAscending: sort,
                       sortColumnIndex: columnIndexSort,
                       border: TableBorder.all(
                         borderRadius: BorderRadius.all(Radius.circular(30)),
-                          color: Colors.black,
+                          color: borderClr,
                           style: BorderStyle.solid,
                           width: 1),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(30)),
-                          gradient: gradientFunc()
                       ),
                       // headingRowColor: MaterialStateColor.resolveWith(
                       //     (states) => Colors.deepPurple),
@@ -396,7 +402,7 @@ class _TableModuleState extends State<TableModule> {
                                   Text(
                                     res,
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 16),
+                                        color: primary, fontSize: 16,fontWeight: FontWeight.bold),
                                   ),
                                   IconButton(
                                     onPressed: () {
@@ -453,7 +459,7 @@ class _TableModuleState extends State<TableModule> {
                                     },
                                     icon: Icon(
                                       Icons.filter_alt_outlined,
-                                      color: Colors.white,
+                                      color: primary,
                                     ),
                                   ),
                                 ],
@@ -572,19 +578,19 @@ class _TableModuleState extends State<TableModule> {
                                             /*if (key == "RegNo") ...[
                                               const Icon(
                                                 Icons.person_outline_rounded,
-                                                color: Colors.white,
+                                                color: primary,
                                                 size: 20,
                                               ),
                                             ],*/
                                             Text(
                                               "$key:",
                                               style:
-                                                  TextStyle(color: Colors.white),
+                                                  TextStyle(color: primary),
                                             ),
                                             Text(
                                               module.get(key),
                                               style:
-                                                  TextStyle(color: Colors.white),
+                                                  TextStyle(color: primary),
                                             )
                                           ],
                                         ))
