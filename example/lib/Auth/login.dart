@@ -1,5 +1,6 @@
 library flutter_bootstrap5;
 
+import 'package:example/Utils/ColorFile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbootstrap5latest/flutterbootstrap5latest.dart';
 
@@ -24,10 +25,7 @@ class _LoginState extends State<Login> {
       body: Container(
         width: double.maxFinite,
         height: double.maxFinite,
-        decoration:BoxDecoration(
-            gradient: gradientFunc()
-        ),
-
+        decoration: BoxDecoration(gradient: gradientFunc()),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: data == "xs" || data == "sm"
@@ -40,19 +38,29 @@ class _LoginState extends State<Login> {
               children: [
                 FB5Col(
                   classNames:
-                      'col-xs-12 col-sm-12 col-md-3 m-5 col-lg-3 col-xl-3 col-xxl-3',
+                      'col-xs-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 col-xxl-3  m-5',
                   child: Card(
                     color: Colors.white,
                     margin: EdgeInsets.zero,
                     child: FB5Row(
+                      classNames: 'p-2',
                       children: [
                         ///Login text
                         FB5Col(
                           classNames: 'm-2',
-                          child: Text(
-                            "Login",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
+                          child: Row(
+                            children: [
+                              Text(
+                                "Log",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold,color: primary),
+                              ),
+                              Text(
+                                "in",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold,color: primary1),
+                              ),
+                            ],
                           ),
                         ),
                         FB5Col(
@@ -92,16 +100,18 @@ class _LoginState extends State<Login> {
                           classNames: 'm-2',
                           child: SizedBox(
                             height: 40,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Home(),
-                                      ));
-                                },
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.deepPurple),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Home(),
+                                    ));
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    gradient: gradientFunc(),
+                                    borderRadius: BorderRadius.circular(30)),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -112,7 +122,9 @@ class _LoginState extends State<Login> {
                                           color: Colors.white),
                                     )
                                   ],
-                                )),
+                                ),
+                              ),
+                            ),
                           ),
                         ),
 
@@ -128,7 +140,8 @@ class _LoginState extends State<Login> {
                                   },
                                   child: Text(
                                     "Forgot Username?",
-                                    style: TextStyle(),
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                 ),
                               ),
@@ -141,7 +154,7 @@ class _LoginState extends State<Login> {
                                   },
                                   child: Text(
                                     "Forgot Password?",
-                                    style: TextStyle(),
+                                    style: TextStyle(fontWeight: FontWeight.bold,color: primary1),
                                   ),
                                 ),
                               ),

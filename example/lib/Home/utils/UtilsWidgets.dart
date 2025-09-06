@@ -1,10 +1,11 @@
+import 'package:example/Utils/ColorFile.dart';
 import 'package:flutter/material.dart';
 
 gradientFunc() {
   return LinearGradient(
         colors: [
-          Colors.deepPurple,
-          Colors.white,
+          primary,
+          primary1,
         ],
         begin: const FractionalOffset(0.0, 0.0),
         end: const FractionalOffset(1.0, 0.0),

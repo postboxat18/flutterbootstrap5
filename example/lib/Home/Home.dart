@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
 
     isDevice = getData(width) == "xs" || getData(width) == "sm";
     //NAVIGATION RAIL
-    return isDevice
+    return true
         ? Scaffold(
             appBar: AppBar(
               iconTheme: IconThemeData(color: Colors.white),
@@ -75,7 +75,7 @@ class _HomeState extends State<Home> {
                 decoration: BoxDecoration(gradient: gradientFunc()),
               ),
             ),
-            body: buildWidget(context),
+            body: SingleChildScrollView(child: buildWidget(context),),
             drawer: drawerFunc(),
             floatingActionButton: chatBot(),
           )
