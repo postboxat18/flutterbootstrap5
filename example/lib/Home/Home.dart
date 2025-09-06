@@ -1,10 +1,10 @@
 import 'package:example/Home/Dash/dash.dart';
 import 'package:example/Home/utils/UtilsWidgets.dart';
 import 'package:example/Home/widgets/widgets.dart';
+import 'package:example/Utils/ColorFile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbootstrap5latest/flutterbootstrap5latest.dart';
 
-import 'Alert/AlertUI.dart';
 import 'ChatBot/ChatBot.dart';
 import 'DragAndDrop/DragAndDrop.dart';
 import 'NavigationBarModule/NavBarModule.dart';
@@ -20,7 +20,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   late double width;
-  late int titleIndex = 0;
+  late String selectedTitle = "";
+  late String multiTitle = "";
+  late int titleIndex = 3;
   late int multiIndex = -1;
   late int multi1Index = -1;
 
@@ -58,6 +60,14 @@ class _HomeState extends State<Home> {
   late bool isDevice;
 
   @override
+  void initState() {
+    setState(() {
+      selectedTitle = moduleList[0];
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
 
@@ -65,17 +75,29 @@ class _HomeState extends State<Home> {
     //NAVIGATION RAIL
     return true
         ? Scaffold(
+            backgroundColor: bgClr,
             appBar: AppBar(
-              iconTheme: IconThemeData(color: Colors.white),
-              title: Text(
-                "Home",
-                style: TextStyle(color: Colors.white),
-              ),
-              flexibleSpace: Container(
-                decoration: BoxDecoration(gradient: gradientFunc()),
+              elevation: 2,
+              backgroundColor: Colors.white,
+              iconTheme: IconThemeData(color: primary),
+              title: Row(
+                children: [
+                  Text(
+                    "Ho",
+                    style:
+                        TextStyle(color: primary, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "me",
+                    style:
+                        TextStyle(color: primary1, fontWeight: FontWeight.bold),
+                  )
+                ],
               ),
             ),
-            body: SingleChildScrollView(child: buildWidget(context),),
+            body: SingleChildScrollView(
+              child: buildWidget(context),
+            ),
             drawer: drawerFunc(),
             floatingActionButton: chatBot(),
           )
@@ -188,7 +210,7 @@ class _HomeState extends State<Home> {
                               ),
                               //EXP 2
                               ExpansionTile(
-                                  title: expansionTitleFunc(1, isDrawer),
+                                  title: expansionTitleFunc(2, isDrawer),
                                   iconColor: Colors.white,
                                   collapsedIconColor: Colors.white,
                                   children: [
@@ -237,39 +259,74 @@ class _HomeState extends State<Home> {
             ? TableModule()
             : titleIndex == 2
                 ? NavBarModule()
-                    : titleIndex == 3
-                        ? TextFieldsModule()
-                        : titleIndex == 4
-                            ? DragAndDrop()
-                            : Container(
-                                color: Colors.yellow,
-                              );
+                : titleIndex == 3
+                    ? TextFieldsModule()
+                    : titleIndex == 4
+                        ? DragAndDrop()
+                        : Container(
+                            color: Colors.yellow,
+                          );
   }
 
   drawerFunc() {
     return Drawer(
-      child: Container(
-        decoration: BoxDecoration(gradient: gradientFunc()),
-        child: Padding(
-          padding: EdgeInsets.all(10),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                //TITLE
-                ListView(
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  children: moduleList
-                      .map((module) =>
-                          inkWellDrawerFunc(module, moduleList, 0, false))
-                      .toList(),
+      backgroundColor: bgClr,
+      child: Padding(
+        padding: EdgeInsets.all(10),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              //TITLE
+              ListView(
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                children: moduleList
+                    .map((module) =>
+                        inkWellDrawerFunc(module, moduleList, 0, false))
+                    .toList(),
+              ),
+              //exp 1
+              ExpansionTile(
+                iconColor:
+                    multiTitle == "Multi Nav Bar 1" ? primary : textFieldClr,
+                collapsedIconColor:
+                    multiTitle == "Multi Nav Bar 1" ? primary : textFieldClr,
+                collapsedTextColor: textFieldClr,
+                collapsedShape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                //exp 1
-                ExpansionTile(
-                  iconColor: Colors.white,
-                  collapsedIconColor: Colors.white,
-                  title: expansionTitleFunc(1, true),
+                collapsedBackgroundColor:
+                    multiTitle == "Multi Nav Bar 1" ? Colors.white : bgClr,
+                title: expansionTitleFunc(1, true),
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                    child: ListView(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      children: multiList1
+                          .map((module) =>
+                              inkWellDrawerFunc(module, multiList1, 1, false))
+                          .toList(),
+                    ),
+                  ),
+                ],
+              ),
+              //EXP 2
+              ExpansionTile(
+                  title: expansionTitleFunc(2, true),
+                  iconColor:
+                      multiTitle == "Multi Nav Bar 2" ? primary : textFieldClr,
+                  collapsedIconColor:
+                      multiTitle == "Multi Nav Bar 2" ? primary : textFieldClr,
+                  collapsedTextColor: textFieldClr,
+                  collapsedShape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  collapsedBackgroundColor:
+                      multiTitle == "Multi Nav Bar 2" ? Colors.white : bgClr,
                   children: [
                     Padding(
                       padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
@@ -277,35 +334,14 @@ class _HomeState extends State<Home> {
                         scrollDirection: Axis.vertical,
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
-                        children: multiList1
+                        children: multiList2
                             .map((module) =>
-                                inkWellDrawerFunc(module, multiList1, 1, false))
+                                inkWellDrawerFunc(module, multiList2, 2, false))
                             .toList(),
                       ),
-                    ),
-                  ],
-                ),
-                //EXP 2
-                ExpansionTile(
-                    title: expansionTitleFunc(1, true),
-                    iconColor: Colors.white,
-                    collapsedIconColor: Colors.white,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                        child: ListView(
-                          scrollDirection: Axis.vertical,
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          children: multiList2
-                              .map((module) =>
-                                  inkWellDrawerFunc(module, multiList2, 2, false))
-                              .toList(),
-                        ),
-                      )
-                    ]),
-              ],
-            ),
+                    )
+                  ]),
+            ],
           ),
         ),
       ),
@@ -318,6 +354,17 @@ class _HomeState extends State<Home> {
 
   int selectedModule(String module, List<String> moduleList) {
     return moduleList.indexWhere((element) => element == module);
+  }
+
+  String selectedStrModule(String module, List<String> moduleList) {
+    String str = "";
+    for (int i = 0; i < moduleList.length; i++) {
+      if (moduleList[i] == module) {
+        str = moduleList[i];
+        break;
+      }
+    }
+    return str;
   }
 
   Widget inkWellFunc(
@@ -385,7 +432,7 @@ class _HomeState extends State<Home> {
                                     : multi1Index)
                     ? isHover
                         ? Colors.white
-                        : Colors.deepPurple
+                        : primary
                     : Colors.transparent,
                 isSelectedModule(
                             module,
@@ -404,7 +451,7 @@ class _HomeState extends State<Home> {
                                     ? multiIndex
                                     : multi1Index)
                     ? isHover
-                        ? Colors.deepPurple
+                        ? primary
                         : Colors.white
                     : Colors.transparent,
               ],
@@ -483,7 +530,7 @@ class _HomeState extends State<Home> {
                                         : val == 1
                                             ? multiIndex
                                             : multi1Index)
-                            ? Colors.deepPurple
+                            ? primary
                             : isHover
                                 ? Colors.transparent
                                 : Colors.white,
@@ -539,93 +586,56 @@ class _HomeState extends State<Home> {
       onTap: () {
         Navigator.pop(context);
         setState(() {
-          if (val == 0) {
-            titleIndex = selectedModule(module, moduleList);
-          } else if (val == 1) {
-            multiIndex = selectedModule(module, moduleList);
-          } else if (val == 2) {
-            multi1Index = selectedModule(module, moduleList);
+          selectedTitle = selectedStrModule(module, moduleList);
+          titleIndex = selectedModule(module, moduleList);
+          if (val != 0) {
+            multiTitle = "Multi Nav Bar $val";
+          } else {
+            multiTitle = "";
           }
         });
       },
-      child: Container(
-        padding: EdgeInsets.all(15),
-        color: isSelectedModule(
-                module,
-                moduleList,
-                val == 0
-                    ? titleIndex
-                    : val == 1
-                        ? multiIndex
-                        : multi1Index)
-            ? Colors.white
-            : Colors.transparent,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Icon(
-              isSelectedModule(
-                      module,
-                      moduleList,
-                      val == 0
-                          ? titleIndex
-                          : val == 1
-                              ? multiIndex
-                              : multi1Index)
-                  ? Icons.home
-                  : Icons.home_outlined,
-              color: isHover
-                  ? Colors.transparent
-                  : isSelectedModule(
-                          module,
-                          moduleList,
-                          val == 0
-                              ? titleIndex
-                              : val == 1
-                                  ? multiIndex
-                                  : multi1Index)
-                      ? Colors.deepPurple
-                      : Colors.white,
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-              child: Text(
-                module,
-                style: TextStyle(
-                    color: isSelectedModule(
-                            module,
-                            moduleList,
-                            val == 0
-                                ? titleIndex
-                                : val == 1
-                                    ? multiIndex
-                                    : multi1Index)
-                        ? Colors.deepPurple
-                        : Colors.white,
-                    fontSize: isSelectedModule(
-                            module,
-                            moduleList,
-                            val == 0
-                                ? titleIndex
-                                : val == 1
-                                    ? multiIndex
-                                    : multi1Index)
-                        ? 16
-                        : 14,
-                    fontWeight: isSelectedModule(
-                            module,
-                            moduleList,
-                            val == 0
-                                ? titleIndex
-                                : val == 1
-                                    ? multiIndex
-                                    : multi1Index)
-                        ? FontWeight.w700
-                        : FontWeight.w400),
+      child: Card(
+        elevation: selectedTitle == module ? 1 : 0,
+        color: selectedTitle == module ? Colors.white : bgClr,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(
+                selectedTitle == module ? Icons.home : Icons.home_outlined,
+                color: isHover
+                    ? Colors.transparent
+                    : selectedTitle == module
+                        ? primary
+                        : textFieldClr,
               ),
-            )
-          ],
+              Padding(
+                padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                child: Text(
+                  textAlign: TextAlign.center,
+                  module,
+                  style: TextStyle(
+                      color: selectedTitle == module ? primary : textFieldClr,
+                      fontSize: isSelectedModule(
+                              module,
+                              moduleList,
+                              val == 0
+                                  ? titleIndex
+                                  : val == 1
+                                      ? multiIndex
+                                      : multi1Index)
+                          ? 16
+                          : 14,
+                      fontWeight: selectedTitle == module
+                          ? FontWeight.w700
+                          : FontWeight.w400),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -637,8 +647,8 @@ class _HomeState extends State<Home> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Icon(
-          Icons.home_outlined,
-          color: Colors.white,
+          multiTitle == "Multi Nav Bar $val" ? Icons.home : Icons.home_outlined,
+          color: multiTitle == "Multi Nav Bar $val" ? primary : textFieldClr,
         ),
         if (isDrawer) ...[
           Padding(
@@ -646,9 +656,13 @@ class _HomeState extends State<Home> {
             child: Text(
               "Multi Nav Bar $val",
               style: TextStyle(
-                  color: Colors.white,
+                  color: multiTitle == "Multi Nav Bar $val"
+                      ? primary
+                      : textFieldClr,
                   fontSize: 14,
-                  fontWeight: FontWeight.w400),
+                  fontWeight: multiTitle == "Multi Nav Bar $val"
+                      ? FontWeight.w700
+                      : FontWeight.w400),
             ),
           )
         ],
@@ -657,21 +671,28 @@ class _HomeState extends State<Home> {
   }
 
   chatBot() {
-    return FloatingActionButton(
-      backgroundColor: Colors.deepPurple,
-      shape: CircleBorder(),
-      onPressed: () {
-        isDevice
-            ? Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ChatBot1(),
-                ))
-            : openAlertDialog();
-      },
-      child: Icon(
-        Icons.chat_outlined,
-        color: Colors.white,
+    return Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        gradient: gradientFunc(),
+      ),
+      child: FloatingActionButton(
+        shape: CircleBorder(),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        onPressed: () {
+          isDevice
+              ? Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChatBot1(),
+                  ))
+              : openAlertDialog();
+        },
+        child: Icon(
+          Icons.chat_outlined,
+          color: Colors.white,
+        ),
       ),
     );
   }

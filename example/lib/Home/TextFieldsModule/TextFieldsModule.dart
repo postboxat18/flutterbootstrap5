@@ -13,11 +13,11 @@ class TextFieldsModule extends StatefulWidget {
 class _TextFieldsModuleState extends State<TextFieldsModule> {
   @override
   Widget build(BuildContext context) {
-    print(getData(MediaQuery.of(context).size.width));
+    // 'col-xs-12 col-sm-7 col-md-8 col-lg-9 col-xl-9 col-xxl-9',
+
     return SingleChildScrollView(
       child: FB5Col(
-        classNames:
-        'col-xs-12 col-sm-7 col-md-8 col-lg-9 col-xl-9 col-xxl-9',
+
         child: textFields(context),
       ),
     );

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutterbootstrap5latest/flutterbootstrap5latest.dart';
 
+import '../../Utils/ColorFile.dart';
 import '../utils/UtilsWidgets.dart';
 
 class AlertUI extends StatefulWidget {
@@ -29,17 +30,27 @@ class _MedUIState extends State<AlertUI> {
                 contentPadding: EdgeInsets.fromLTRB(15, 10, 15, 15),
                 titlePadding: EdgeInsets.zero,
                 title: Container(
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
+                    padding: EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      color: bgClr,
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(30),
                           topLeft: Radius.circular(30)),
-                      gradient: gradientFunc()),
-                  child: Text(
-                    'Alert',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          'Alert',
+                          style: TextStyle(
+                              color: primary, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          'Dialog',
+                          style: TextStyle(
+                              color: primary1, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    )),
                 content: showAlertDialog(context));
           },
         );
@@ -77,10 +88,10 @@ class _MedUIState extends State<AlertUI> {
                     child: Switch(
                         value: false,
                         onChanged: (value) {},
-                        activeTrackColor: Colors.deepPurple,
-                        activeColor: Colors.deepPurple,
+                        activeTrackColor: primary,
+                        activeColor: primary,
                         inactiveThumbColor: Colors.grey,
-                        inactiveTrackColor: Colors.deepPurple),
+                        inactiveTrackColor: primary),
                   ),
                 ),
                 FB5Col(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'Auth/login.dart';
 import 'Home/Home.dart';
+import 'Utils/ColorFile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +23,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
           useMaterial3: true,
           colorScheme:
-              ColorScheme.fromSwatch().copyWith(primary: Colors.deepPurple)),
+              ColorScheme.fromSwatch().copyWith(primary: primary)),
       home: Home(),
     );
   }

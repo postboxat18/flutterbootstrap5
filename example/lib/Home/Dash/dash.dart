@@ -43,11 +43,11 @@ class _DashState extends State<Dash> {
         children: [
           //TOP TITLE
           FB5Row(
-            classNames: 'row-cols-2 align-items-center justify-content-between',
+            classNames: 'row-cols-xs-1 row-cols-sm-1 row-cols-lg-2 row-cols-xl-2 row-cols-xxl-2 align-items-center justify-content-between',
             children: [
               //TITLE
               FB5Col(
-                classNames: 'col-1 align-self-start',
+                classNames: 'row-cols-xs-1 row-cols-sm-1 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-3 align-self-start  m-xs-1 m-sm-1 m-lg-0 m-xl-0 m-xxl-0',
                 child: FB5Row(
                   classNames: 'justify-content-start',
                   children: [
@@ -73,7 +73,7 @@ class _DashState extends State<Dash> {
                 ),
               ),
               FB5Col(
-                classNames: 'col-3',
+                classNames: 'row-cols-xs-1 row-cols-sm-1 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-3',
                 child: FB5Row(
                   classNames: 'align-items-center justify-content-between',
                   children: [

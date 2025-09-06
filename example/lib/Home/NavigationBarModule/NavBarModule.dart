@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../Utils/ColorFile.dart';
 import '../Alert/AlertUI.dart';
 import '../Dash/dash.dart';
 import '../Table/TableModule.dart';
@@ -31,6 +32,7 @@ class _NavBarModuleState extends State<NavBarModule> {
     isDevice = getData(width) == "xs" || getData(width) == "sm";
     return isDevice
         ? Scaffold(
+            backgroundColor: bgClr,
             body: buildWidget(context),
             bottomNavigationBar: BottomAppBar(
               height: 55,
@@ -42,7 +44,7 @@ class _NavBarModuleState extends State<NavBarModule> {
                             index == selectedModule(module, moduleList)
                                 ? Icons.home
                                 : Icons.home_outlined,
-                            color: Colors.deepPurple,
+                            color: primary,
                           ),
                           onTap: () {
                             setState(() {
@@ -56,44 +58,39 @@ class _NavBarModuleState extends State<NavBarModule> {
           )
         : Column(
             children: [
-              AppBar(
-                actions: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(bottomRight: Radius.circular(30),bottomLeft: Radius.circular(30),),
-                        gradient: gradientFunc()),
-                    child: Row(
-                      children: moduleList
-                          .map((module) => InkWell(
-                                child: Container(
-                                  width: 150,
-                                  padding: EdgeInsets.all(15),
-                                  child: Text(
-                                    module,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        fontWeight: index ==
-                                                selectedModule(
-                                                    module, moduleList)
-                                            ? FontWeight.bold
-                                            : FontWeight.w400,
-                                        color: index ==
-                                                selectedModule(
-                                                    module, moduleList)
-                                            ? Colors.deepPurple
-                                            : Colors.white),
-                                  ),
-                                ),
-                                onTap: () {
-                                  setState(() {
-                                    index = selectedModule(module, moduleList);
-                                  });
-                                },
-                              ))
-                          .toList(),
-                    ),
-                  )
-                ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: moduleList
+                    .map((module) => InkWell(
+                          child: Container(
+                            decoration: index ==
+                                selectedModule(module, moduleList)
+                                ?  ShapeDecoration(
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                                gradient: gradientFunc()):ShapeDecoration(shape: RoundedRectangleBorder()),
+                            width: 150,
+                            padding: EdgeInsets.all(15),
+                            child: Text(
+                              module,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontWeight: index ==
+                                          selectedModule(module, moduleList)
+                                      ? FontWeight.bold
+                                      : FontWeight.w400,
+                                  color: index ==
+                                          selectedModule(module, moduleList)
+                                      ? Colors.white
+                                      : textFieldClr),
+                            ),
+                          ),
+                          onTap: () {
+                            setState(() {
+                              index = selectedModule(module, moduleList);
+                            });
+                          },
+                        ))
+                    .toList(),
               ),
               buildWidget(context)
             ],

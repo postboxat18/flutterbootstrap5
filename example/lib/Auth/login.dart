@@ -72,7 +72,7 @@ class _LoginState extends State<Login> {
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.deepPurple),
+                                    BorderSide(color: primary),
                               ),
                               labelText: "Email",
                               // errorText: "Please enter the username",
@@ -88,7 +88,7 @@ class _LoginState extends State<Login> {
                               borderSide: BorderSide(color: Colors.grey),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.deepPurple),
+                              borderSide: BorderSide(color: primary),
                             ),
                             labelText: "Password",
                             labelStyle: TextStyle(),

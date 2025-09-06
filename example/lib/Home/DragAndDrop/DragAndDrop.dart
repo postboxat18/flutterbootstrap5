@@ -4,6 +4,7 @@ import 'package:flutter_listfilter/flutter_listfilter.dart';
 
 import 'package:flutterbootstrap5latest/flutterbootstrap5latest.dart';
 import 'package:grouped_list/grouped_list.dart';
+import '../../Utils/ColorFile.dart';
 import '../Table/TableModule.dart';
 import '../widgets/widgets.dart';
 import 'Model/DragAndDropModel.dart';
@@ -65,7 +66,7 @@ class _DragAndDropState extends State<DragAndDrop> {
         child: FlutterListFilter(
             dynamicList: dragAndDropList,
             filterHeaderList: tableModuleLis,
-            primaryColor: Colors.deepPurple,
+            primaryColor: primary,
             lineColor: Colors.grey,
             builder: (List<DragAndDropModel> dragAndDropList) {
               dragAndDropMap = {};
@@ -237,7 +238,7 @@ class _DragAndDropState extends State<DragAndDrop> {
             "$value  (${dragList.length})",
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: Colors.deepPurple,
+                color: primary,
                 fontSize: 16,
                 fontWeight: FontWeight.bold),
           ),
@@ -262,7 +263,7 @@ class _DragAndDropState extends State<DragAndDrop> {
           Text(
             "$header (${dragList.length})",
             style: TextStyle(
-                color: Colors.deepPurple,
+                color: primary,
                 fontSize: 16,
                 fontWeight: FontWeight.bold),
           ),
@@ -355,13 +356,13 @@ class _DragAndDropState extends State<DragAndDrop> {
                   classNames: 'me-2',
                   child: Icon(
                     Icons.compare_arrows_rounded,
-                    color: Colors.deepPurple,
+                    color: primary,
                   )),
               FB5Col(
                 child: Text(
                   "$header is Move to",
                   style: TextStyle(
-                      color: Colors.deepPurple,
+                      color: primary,
                       fontSize: 16,
                       fontWeight: FontWeight.bold),
                 ),
